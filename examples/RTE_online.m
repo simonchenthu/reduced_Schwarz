@@ -43,28 +43,28 @@ radius = 25;
 expmt = 2;
 
 %% Ref soln
-dx_ref = 2^(-14); Nv_ref = 2^10; x_ref = 0:dx_ref:L;
-[v_ref,w_v] = legendre_quad(Nv_ref-1); w_v = w_v'; 
-w_x = [dx_ref/2,dx_ref*ones(1,L/dx_ref-1),dx_ref/2]';
-[xx_ref,vv_ref] = meshgrid(x_ref,v_ref);
-load(fullfile('data_RTE',['G_ref_eps',int2str(n),'_bdy',int2str(bdy_l_no),int2str(bdy_r_no),...
-    '_sigma',int2str(sigma_n),'_Lx',num2str(L,2),'_dx',num2str(dx_ref),'_Nv',int2str(Nv_ref),...
-    '.mat']),'f_ref','theta_ref');
-
-figure(11)
-subplot(2,1,1); 
-plot(x_ref,theta_ref); 
-ylim([0,ploty]); 
-title('Reference Solution'); 
-xlabel('$x$','Interpreter','latex'); 
-ylabel('$T$','Interpreter','latex');
-
-subplot(2,1,2); 
-mesh(xx_ref,vv_ref,f_ref); 
-zlim([0,plotz]); 
-xlabel('$x$','Interpreter','latex'); 
-ylabel('$v$','Interpreter','latex'); 
-zlabel('$I$','Interpreter','latex');
+% dx_ref = 2^(-14); Nv_ref = 2^10; x_ref = 0:dx_ref:L;
+% [v_ref,w_v] = legendre_quad(Nv_ref-1); w_v = w_v'; 
+% w_x = [dx_ref/2,dx_ref*ones(1,L/dx_ref-1),dx_ref/2]';
+% [xx_ref,vv_ref] = meshgrid(x_ref,v_ref);
+% load(fullfile('data_RTE',['G_ref_eps',int2str(n),'_bdy',int2str(bdy_l_no),int2str(bdy_r_no),...
+%     '_sigma',int2str(sigma_n),'_Lx',num2str(L,2),'_dx',num2str(dx_ref),'_Nv',int2str(Nv_ref),...
+%     '.mat']),'f_ref','theta_ref');
+% 
+% figure(11)
+% subplot(2,1,1); 
+% plot(x_ref,theta_ref); 
+% ylim([0,ploty]); 
+% title('Reference Solution'); 
+% xlabel('$x$','Interpreter','latex'); 
+% ylabel('$T$','Interpreter','latex');
+% 
+% subplot(2,1,2); 
+% mesh(xx_ref,vv_ref,f_ref); 
+% zlim([0,plotz]); 
+% xlabel('$x$','Interpreter','latex'); 
+% ylabel('$v$','Interpreter','latex'); 
+% zlabel('$I$','Interpreter','latex');
 
 
 %%    Load Dictionary
@@ -113,10 +113,10 @@ tic
 toc
 
 %%   Error
-f_intp = interp2(xx,vv,f,xx_ref,vv_ref,'spline');
-theta_intp = interp1(x0,theta,x_ref,'spline');
-l2_error_relative = sqrt(w_v*(f_ref-f_intp).^2*w_x + (theta_ref-theta_intp).^2*w_x)...
-    /sqrt(w_v*f_ref.^2*w_x + theta_ref.^2*w_x);
+% f_intp = interp2(xx,vv,f,xx_ref,vv_ref,'spline');
+% theta_intp = interp1(x0,theta,x_ref,'spline');
+% l2_error_relative = sqrt(w_v*(f_ref-f_intp).^2*w_x + (theta_ref-theta_intp).^2*w_x)...
+%     /sqrt(w_v*f_ref.^2*w_x + theta_ref.^2*w_x);
 
 %% Plot    
 figure(14)

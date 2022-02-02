@@ -53,21 +53,21 @@ expmt = 1;
 
 
 %% Ref soln
-dx_ref = 2^(-12);
-x_ref = 0:dx_ref:Lx; y_ref = 0:dx_ref:Ly;
-Nx_ref = length(x_ref); Ny_ref = length(y_ref);
-[xx_ref,yy_ref] = meshgrid(x_ref,y_ref);
-
-load(fullfile('data_elliptic',['u_ref_fno',int2str(f_no),'_eps',int2str(n),...
-    '_bdy',int2str(bdy_no_n),int2str(bdy_no_s),int2str(bdy_no_w),int2str(bdy_no_e),...
-    '_a',int2str(a_n),'_dx',num2str(dx_ref),'.mat']),'u_ref','t_ref');
-
-figure(110)
-mesh(xx_ref,yy_ref,u_ref); zlim([-2,2]);
-xlabel('x'); ylabel('y'); zlabel('u');
-
-step = dx/dx_ref;
-u_ref_res = u_ref(1:step:end,1:step:end);
+% dx_ref = 2^(-12);
+% x_ref = 0:dx_ref:Lx; y_ref = 0:dx_ref:Ly;
+% Nx_ref = length(x_ref); Ny_ref = length(y_ref);
+% [xx_ref,yy_ref] = meshgrid(x_ref,y_ref);
+% 
+% load(fullfile('data_elliptic',['u_ref_fno',int2str(f_no),'_eps',int2str(n),...
+%     '_bdy',int2str(bdy_no_n),int2str(bdy_no_s),int2str(bdy_no_w),int2str(bdy_no_e),...
+%     '_a',int2str(a_n),'_dx',num2str(dx_ref),'.mat']),'u_ref','t_ref');
+% 
+% figure(110)
+% mesh(xx_ref,yy_ref,u_ref); zlim([-2,2]);
+% xlabel('x'); ylabel('y'); zlabel('u');
+% 
+% step = dx/dx_ref;
+% u_ref_res = u_ref(1:step:end,1:step:end);
 
 
 %%    Load Dictionary
@@ -121,12 +121,12 @@ toc
 
 %%   Error
 
-linf_err_relative = err_inf(u,u_ref_res);
-l2_err_relative = err_l2(u,u_ref_res);
-h1_err_relative = err_h1(u,u_ref_res,dx);
-
-ax = a(x_dx,y_dx'); ay = a(x_dy,y_dy');
-energy_err_relative = err_energy(u,u_ref_res,ax,ay);
+% linf_err_relative = err_inf(u,u_ref_res);
+% l2_err_relative = err_l2(u,u_ref_res);
+% h1_err_relative = err_h1(u,u_ref_res,dx);
+% 
+% ax = a(x_dx,y_dx'); ay = a(x_dy,y_dy');
+% energy_err_relative = err_energy(u,u_ref_res,ax,ay);
 
 
 %% Plot

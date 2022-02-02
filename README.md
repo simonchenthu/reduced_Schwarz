@@ -16,14 +16,12 @@ The instructions for running each case are as follows.
 ### Semilinear elliptic equations
 
 1. Run elliptic_dictionary.m, which will generate dictionaries on each local patch and save them in data_elliptic
-2. Run elliptic_ref.m, which will generate a reference solution and save it in data_elliptic
-3. Run elliptic_online.m to solve semilinear elliptic equations by the reduced order Schwarz iteration
+2. Run elliptic_online.m to solve semilinear elliptic equations by the reduced order Schwarz iteration
 
 ### Nonlinear radiative transfer equations
 
 1. Run RTE_dictionary_interior.m and RTE_dictionary_boundary.m, which will generate dictionaries and save them in data_RTE
-2. Run RTE_ref.m, which will generate a reference solution
-3. Run RTE_online.m to solve the nonlinear radiative transfer equations by the reduced order Schwarz iteration
+2. Run RTE_online.m to solve the nonlinear radiative transfer equations by the reduced order Schwarz iteration
 
 ## Cite this work
 
